@@ -45,41 +45,97 @@ unit tests (Chapter 13):
 test first (Chapter 14, "test first, by intention"):
     Experiment with writing little tests first, and with always expressing your intention, not algorithm, in the code you write. We think you’ll find that the work goes more smoothly, and you wind up with code that communicates what you mean to do, not just how you did it
 
-make and makefile
+make and makefile:
+    make is a function that follows the instructions in the makefile to build a paticular file or program. Syntactically, you use type make [filename] to have it follow the build instructions under that filename in the makefile. 
+    
 
-Git and GitLab
+Git and GitLab:
+    see /class-repo/notes/notes_1_2.txt
 
-Python Unittests: statement coverage vs Branch Coverage
+Python Unittests: statement coverage vs Branch Coverage:
+    See /class-repo/notes/notes_3.txt
+    Python's unittest in its simplest form consists of the function main and the class TestCase
+    Define a class that extends TestCase. Each function inside this class must start with "test"
+    Unittest workflow is:
+    1. you import main and TestCase from unittest
+    2. You define your own class derived from TestCase.
+    3. Then you fill it with functions that start with ‘test’.
+    3. You run the tests by placing main() in your file, usually at the bottom.
+    the class provides things like assertEqual, assertFalse, assertCountEqual, etc. 
+    **even an internal assertion failure will not stop it from running all of the tests** This is why we love unittest
+
+Coverage (Not listed in Piazza, but is extension of Unittests):
+    See /class-repo/notes/notes_3.txt
+    Test coverage or code coverage is used to measure the percent of your code covered by a test. 
+    Coverage testing only checks whether or not a test is present. It does not check the quality of the test.
+
+    Where a line in your program could jump to more than one next line, coverage.py tracks which of those destinations are actually visited, and flags lines that haven’t visited all of their possible destinations.
+    
+    In branch coverage, coverage will flag all branches not visited as not covered. Say you have an if loop and you don't have a test for when the if is false: branch coverage would mark lines never executed as not covered. 
+        If coverage is flagging something where you've got an intentional partial branch, you can use "# pragma: no branch" so it doesn't flag it. 
 
 Python types:
-
-bool
-complex
-dict
+bool:
+    True or False
+complex: 
+    Complex numbers have a real and imaginary part, which are each a floating point number. To extract these parts from a complex number z, use z.real and z.imag
+    complex():
+        Return a complex number with the value real + imag*1j or convert a string or number to a complex number. If the first parameter is a string, it will be interpreted as a complex number and the function must be called without a second parameter. The second parameter can never be a string. Each argument may be any numeric type (including complex). If imag is omitted, it defaults to zero and the constructor serves as a numeric conversion like int and float. If both arguments are omitted, returns 0j.
+        complex("5+4j") -> (5+4j)
+        complex(5, 4) -> (5+4j)
+        complex(5,"4j") -> TypeError: complex() second arg can't be a string
+        complex('1 + 2j') -> ValueError: complex() arg is a malformed string
+dict:
+    Python Dictionary. 
+    assert not hasattr(d, "__next__")
+    assert     hasattr(d, "__iter__")
 float
 frozenset
-int list
-set str tuple
+int list:
+    assert not hasattr(a, "__next__") 
+    assert     hasattr(a, "__iter__")
+set str tuple:
+    assert isinstance(a, tuple)
+    assert not hasattr(a, "__next__")
+    assert     hasattr(a, "__iter__")  
 
 Python operators:
--
--= () [] * ** **= *= / // /= & !=
-&=
-% %= ^ ^= +
-+=
-<
-<<
-<<=
-<=
->
->=
->>
->>=
-|= ~ and not or
+**
+    Exponent (ex. 5**2==25) 
+**=
+    (x **= 3) == (x= x**3 )
+/=
+    (x /= 3) == (x = x / 3)
+!=
+    Not equal to
+%
+    Modulus- return remainder of division (Ex. 5%2==1)
+%=
+    (x %= 3) == (x = x % 3)
++=  
+    x = x + 3
+Bitwise Functions:     TODO: Complete this section and deepen understanding of bitwise functions.
+    <<
+        Zero fill left shift. Shift left by pushing zeros in from the right and let the leftmost bits fall off
+    <<=
+        x <<= 3   ==    x = x << 3
+    >>
+    >>=
+    ^
+    ^=
+    |= ~ and not or
+    &
+    //
+    &=  
 
 Python functions:
 
-assert
+assert:
+    See /class-repo/notes/notes_2.txt
+    assertions are good computational comments and they're invaluable to a future maintainer of the code
+    an assertion failure reports 
+    •	the filename, the function name, the line number, and the expression where the failure occurred
+    When an assert fails, it stops the program, unless it's inside a unittest. You should only use these in your unittests, as when you're testing, you want all your tests to run. 
 enumerate
 except
 filter
