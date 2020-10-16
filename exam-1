@@ -21,16 +21,29 @@ circle of life (Chapter 2):
 stories (Chapter 4): 
     Define requirements with stories, written on note cards. Customer should write these. 
 acceptance tests (Chapter 5):
-    Testing will get you the 
-story estimation 
-spike solution
-small releases
-iteration planning
-refactoring
-continuous integration
-pair programming
-unit tests
-test first
+    Acceptance tests should tell the client that the system works, and tell the programmers what needs to get done. 
+story estimation (Chapter 6):
+    For each story, assign it a score based on difficulty of implementation. One point should be about one "perfect engineering week" of work. If a story is 3+ points, maybe have the customer split it into two or more stories. 
+spike solution (chapter 6):
+    Estimating story length when comparing to other stories is easy, but if you haven't implemented anything like this before, do some expereimenting, make a spike solution. Example: balancing an account: take the numbers, add them up. Maybe make a transaction object to store that data, a vector of them, a loop, etc. Formatted reports: make a collection of record objects, give them fields, code the report, print it all. If it's too complicated to implement on it's own, maybe experiment with a report generator. With a DB, you might make a sample DB to query with your code in test. As soon as you have enough of the basics figured out to see how you'll implement it and estimate how long it will take, you're done. 
+small releases (Chapter 7):
+    Releasing often give you a chance to get feedback on the product and the chance to deliver business value quickly. Replacing parts of a system one by one delivers value, integrating with the existing system temporarially gives them immediate value and helps ease the transition. Customer should choose stories for first release based on business value and difficulty. 
+iteration planning (Chapter 9):
+    1. Customer presents User Stories;
+    2. Team brainstorms Engineering Tasks;
+    3. Programmer signs up for work and estimates.
+refactoring (Chapter 11, Programming): 
+    We keep the code simple at all times.This minimizes investment in excess framework and support code. We retain the necessary flexibility through refactoring.
+    Refactoring: Improving the design of existing code
+continuous integration (Chapter 11, Programming):
+    "Integration is a bear. We can’t put it off forever. Let’s do it all the time instead."
+    The longer we wait between integrations and acceptance tests, the worse things get. integrate and test the entire system multiple times per day
+pair programming (Chapter 12):
+    Two programmers sitting together at the same machine write all production code. One of them is focusing on the method being programed and the algorithm they have in mind. The other is spotting simple errors like spelling, syntax, and is reminding the other of protocols and making sure the other isn't goign down the wrong hole. 
+unit tests (Chapter 13):
+    Code refinement is only possible if you have lots of tests to prove that things still work. Therefore, XP teams build automated unit tests for everything, and make sure they run perfectly all the time. Test a little, code a little. Don't throw away tests, they become a perminant part of the system for checking everything still works after a possible future refactoring. 
+test first (Chapter 14, "test first, by intention"):
+    Experiment with writing little tests first, and with always expressing your intention, not algorithm, in the code you write. We think you’ll find that the work goes more smoothly, and you wind up with code that communicates what you mean to do, not just how you did it
 
 make and makefile
 
