@@ -1,0 +1,133 @@
+Test #1
+Test #1 will be on Tue, 20 Oct, during class time and via Canvas.
+
+The test will be published, like a quiz and you have 75 minutes to finish and submit the test. The test may have 4-6 questions and, for each question, there will be a textbox for you to provide the answer. No Multiple choice questions. 
+
+The test may consist of questions from the assigned readings, assignments, classwork, and project 1. You should expect code writing questions in Python. You are NOT allowed to use your computing machines to test your code. 
+
+It is closed book, but one page of notes (8 1/2 x 11) is allowed. The page of notes can be double sided and printed in any way. 
+
+We will NOT use proctoring tools, but you need to join the class and we’ll split you into breakout rooms of one person each and you MUST to share your desktop. 
+
+It’s critical that you join the class at least 5 minutes before it starts to arrange for the breakout rooms. 
+
+You should be very familiar with the following:
+
+Book: Extreme programming
+
+circle of life (Chapter 2):
+    The customer’s basic job is to define what has value, and the programmer’s job is to build it. 
+    Circle of life: define, estimate, choose, build.
+stories (Chapter 4): 
+    Define requirements with stories, written on note cards. Customer should write these. 
+acceptance tests (Chapter 5):
+    Testing will get you the 
+story estimation 
+spike solution
+small releases
+iteration planning
+refactoring
+continuous integration
+pair programming
+unit tests
+test first
+
+make and makefile
+
+Git and GitLab
+
+Python Unittests: statement coverage vs Branch Coverage
+
+Python types:
+
+bool
+complex
+dict
+float
+frozenset
+int list
+set str tuple
+
+Python operators:
+-
+-= () [] * ** **= *= / // /= & !=
+&=
+% %= ^ ^= +
++=
+<
+<<
+<<=
+<=
+>
+>=
+>>
+>>=
+|= ~ and not or
+
+Python functions:
+
+assert
+enumerate
+except
+filter
+functools.reduce
+issubclass
+iter
+itertools.count
+map next
+operator.add
+operator.floordiv
+operator.mul
+operator.sub
+operator.truediv
+pass
+print
+raise
+range
+reversed
+sorted
+sqrt
+str.join
+sum try type
+yield
+zip
+
+Python methods:
+__getitem__
+__init__
+__iter__
+__len__
+__next__
+
+
+Python concepts:
+
+assertions
+classes
+concatenation
+dict comprehensions
+exceptions
+generators
+iterables
+iteration
+iterators
+lambdas
+list comprehensions
+nested functions
+recursion
+replication
+set comprehensions
+StopIteration
+
+Python tokens:
+
+"*" in a function call
+"*" in a parameter list
+"**" in a function call
+"**" in a parameter list
+"=" in a function call
+"=" in a parameter list
+
+The best way to study is to form a study group.
+
+Good luck.
