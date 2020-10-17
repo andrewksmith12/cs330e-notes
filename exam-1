@@ -144,11 +144,11 @@ enumerate
 		Start: the index value from which the counter is to be started, by default it is 0 
 	names = ["Alice", "Andrew"]
 	print list(enumerate(names))
-	[(0, 'Alice'), (1, 'Andrew')]
+	# output: [(0, 'Alice'), (1, 'Andrew')]
 	for count, element in enumerate(names):
 		print(count, element)
-	0 Alice
-	1 Andrew
+	# output:0 Alice
+	#		 1 Andrew
 except
 	clause activates if exception happens when a 'try' clause is executed
 	can be generic (except) or specifically typed (except ValueError)
@@ -167,11 +167,13 @@ filter
 		else: 
 			return False
 functools.reduce
+	apply function of two arguments cumulatively to the items of iterable, from left to right, to reduce the iterable to a single value
 	•	functools.reduce(function, iterable[, initializer])
 		Parameters:
 		function: what is applied to the iterable to reduce it to a single value (often used with lambda functions, anonymous functions)
 		iterable: an iterable that function acts on
 		initializer: used first before items of iterable, is the default if the iterable is empty
+	•	functools.reduce(lambda x,y: x+y, [1,2,3]) calculate ((1+2)+3)
 	•	def reduce(function, iterable, initializer=None): # functionally does this
 		it = iter(iterable) # make whatever iterable is into an iterable form
 		if initializer is None:
@@ -190,40 +192,77 @@ issubclass
 		Returns:
 		True or False
 iter
-	creates an object which can be iterated one at a time
+	creates an iterator object (out of an iterable) which can be iterated one at a time
 itertools.count
 	makes iterator that returns values starting with 'start' with intervals of 'step'
 	•	itertools.count(start=0, step=1)
 map next
-	Map:
+	map:
 	applies function to every item of the iterable
 	•	map(function, iterable, ...)
-	Next:
-	returns next item from iterator
-	
-operator.add
-operator.floordiv
-operator.mul
-operator.sub
-operator.truediv
-pass
-print
+		Parameters:
+		function: function applied to each item of the iterable (often used with lambda functions, anonymous functions)
+		iterable: iterable that the function acts on 
+	next(iterator):
+	returns next item from iterator/generator until yield
+use operator functions for assertions?
+operator.add = a + b
+operator.floordiv = a // b
+operator.mul = a * b
+operator.sub = a - b
+operator.truediv = a / b
+pass (we know this)
+print (we know this)
 raise
+	force a specified exception to occur
+	•	raise XError('Error statement')
 range
+	returns sequence of numbers (NOT iterator) and increments them by 1 (default) or specified step; stops at specified number
+	•	range(start, stop, step)
 reversed
+	returns reversed iterator of given sequence (can take it iteratables, will output iterator)
+	•	reversed(seq)
 sorted
+	returns sorted list of an iterable object; strings sorted alphabetically, numbers numerically
+	cannot sort list of both string and numeric values
 sqrt
+	from import math; returns square root of number
 str.join
+	returns a string that joins the elements of an iterable with str
+	•	str.join(iterable)
 sum try type
 yield
+	suspends the function's execution and sends value back to caller (makes the function a generator of values)
+	•	def f():
+			print ("x")
+			yield 5
+			print("y")
+			yield 6
+		v = f()
+		# output of v: generator object
+		w = next(v)
+		#immediate output: x
+		w
+		# output of w: 5
+		w = next(v)
+		# immediate output: y
 zip
-
+	returns zip object (iterator of tuples) where first item in each passed iterator is paired tgt, etc.
+	•	iterator with least items decides length of returned zip object
+	•	zip(iterator1, iterator2, ...)
+	
 Python methods:
 __getitem__
+	allows instances to use the [] indexer operators
+	x[i] = type(x)._getitem_(x, i)
 __init__
+	the constructor/init method for the class that executes when object of class is created
 __iter__
+	called by the iter() function; returns an iterator object from the given iterable
 __len__
+	called by the len() fucntion; returns length of an object
 __next__
+	called by the next() function; returns the next item in the iterator sequence; at the end, it raises StopIteration
 
 
 Python concepts:
@@ -240,6 +279,7 @@ iterables ("_iter_")
 	has one method; generates iterators when passed to iter()
 	list, list comprehension, generators (like (x for x in y))
 iteration
+	taking each item of something, one after another (loops are iterations)
 	every iterator is an iterable, but not every iterable is an iterator
 iterators ("_next_")
 	an object with iteration state
