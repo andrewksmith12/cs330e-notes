@@ -137,13 +137,70 @@ assert:
     •	the filename, the function name, the line number, and the expression where the failure occurred
     When an assert fails, it stops the program, unless it's inside a unittest. You should only use these in your unittests, as when you're testing, you want all your tests to run. 
 enumerate
+	enumerate adds a counter to an iterable (counts the iterations); can be converted into list of tuples or used in for loops
+	•	enumerate(iterable, start=0)
+		Parameters:
+		Iterable: any object that supports iteration
+		Start: the index value from which the counter is to be started, by default it is 0 
+	names = ["Alice", "Andrew"]
+	print list(enumerate(names))
+	[(0, 'Alice'), (1, 'Andrew')]
+	for count, element in enumerate(names):
+		print(count, element)
+	0 Alice
+	1 Andrew
 except
+	clause activates if exception happens when a 'try' clause is executed
+	can be generic (except) or specifically typed (except ValueError)
 filter
+	•	filter(function, sequence)
+		Parameters:
+		function: function that tests if each element of a sequence true or not.
+		sequence: sequence which needs to be filtered, it can be sets, lists, tuples, or containers of any iterators.
+		Returns:
+		returns an iterator that is already filtered.
+	example of a function:
+	•	def fun(variable): # tests for vowels in the sequence parameter
+		letters = ['a', 'e', 'i', 'o', 'u'] 
+		if (variable in letters): 
+			return True
+		else: 
+			return False
 functools.reduce
+	•	functools.reduce(function, iterable[, initializer])
+		Parameters:
+		function: what is applied to the iterable to reduce it to a single value (often used with lambda functions, anonymous functions)
+		iterable: an iterable that function acts on
+		initializer: used first before items of iterable, is the default if the iterable is empty
+	•	def reduce(function, iterable, initializer=None): # functionally does this
+		it = iter(iterable) # make whatever iterable is into an iterable form
+		if initializer is None:
+			value = next(it)
+		else:
+			value = initializer
+		for element in it: # for each element in the iterable, perform the function on it with the previously calculated value
+			value = function(value, element)
+		return value
 issubclass
+	checks if the first class parameter is a subclass of the second class parameter
+	•	issubclass(firstclass, secondclass)
+		Parameters:
+		firstclass: class to be checked
+		secondclass: class, type, or tuple of classes and types
+		Returns:
+		True or False
 iter
+	creates an object which can be iterated one at a time
 itertools.count
+	makes iterator that returns values starting with 'start' with intervals of 'step'
+	•	itertools.count(start=0, step=1)
 map next
+	Map:
+	applies function to every item of the iterable
+	•	map(function, iterable, ...)
+	Next:
+	returns next item from iterator
+	
 operator.add
 operator.floordiv
 operator.mul
@@ -177,9 +234,17 @@ concatenation
 dict comprehensions
 exceptions
 generators
-iterables
+iterables ("_iter_")
+	an object that can be iterated over; produces any number of valid iterators
+	no iteration state like current element
+	has one method; generates iterators when passed to iter()
+	list, list comprehension, generators (like (x for x in y))
 iteration
-iterators
+	every iterator is an iterable, but not every iterable is an iterator
+iterators ("_next_")
+	an object with iteration state
+	check if it has more elements with _next_ and yields next element (in a specific order) with next()
+	generators
 lambdas
 list comprehensions
 nested functions
