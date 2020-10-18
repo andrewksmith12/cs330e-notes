@@ -74,6 +74,18 @@ Coverage (Not listed in Piazza, but is extension of Unittests):
     In branch coverage, coverage will flag all branches not visited as not covered. Say you have an if loop and you don't have a test for when the if is false: branch coverage would mark lines never executed as not covered. 
         If coverage is flagging something where you've got an intentional partial branch, you can use "# pragma: no branch" so it doesn't flag it. 
 
+makefile:
+	Automation tool for running and compiling programs, run multiple files at the same time
+	Structure:
+		Target: dependencies
+    		Action
+	Example:
+		test: TestDirectoryLookup.py
+			coverage run    --branch TestDirectoryLookup.py >  TestDirectoryLookup.tmp 2>&1   # 2>&1 pipes the output from dev output to the file
+			coverage report -m                      >> TestDirectoryLookup.tmp
+			cat TestDirectoryLookup.tmp
+
+
 Python types:
 bool:
     True or False
@@ -114,19 +126,23 @@ Python operators:
     (x %= 3) == (x = x % 3)
 +=  
     x = x + 3
+//
+	Floor Division (integer division, drop the remainder.)
 Bitwise Functions:     TODO: Complete this section and deepen understanding of bitwise functions.
     <<
-        Zero fill left shift. Shift left by pushing zeros in from the right and let the leftmost bits fall off
-    <<=
-        x <<= 3   ==    x = x << 3
+		"Shift Left" (0000 0010   -> 0000 0100)
     >>
-    >>=
+		"Shift Right" (0000 0010   -> 0000 0001)
     ^
-    ^=
-    |= ~ and not or
-    &
-    //
-    &=  
+		"XOR" If the two bytes are different, return 1, if they're the same return 0   (1001 ^ 1101 -> 0100)
+    | 
+		"OR" If either of the bits is 1, return 1. Otherwise, return 0. (1001 | 1101 -> 1101)
+	~
+		"NOT" (Make the binary negitive, and then add 1)  (1010 -> -1011)
+	&
+		"AND" (If both of the bits are 1, return 1, otherwise return 0)  (1100 & 1001  ->  1000)
+	and not or
+
 
 Python functions:
 
@@ -273,6 +289,7 @@ concatenation
 dict comprehensions
 exceptions
 generators
+	Function that makes an object? 
 iterables ("_iter_")
 	an object that can be iterated over; produces any number of valid iterators
 	no iteration state like current element
@@ -292,15 +309,21 @@ recursion
 replication
 set comprehensions
 StopIteration
+	This is the error it returns when an iterator is exhausted. 
 
-Python tokens:
+Python tokens:     # Rewatch the last lecture.  Function Unpacking. 
 
 "*" in a function call
 "*" in a parameter list
+	As a parameter it unpacks a tuple. 
 "**" in a function call
 "**" in a parameter list
 "=" in a function call
 "=" in a parameter list
+
+In a list, *t has the same weight as an integer. More weight than an argument (z=2)
+** unpacks a dictionary. 
+
 
 The best way to study is to form a study group.
 
