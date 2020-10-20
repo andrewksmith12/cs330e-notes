@@ -21,7 +21,7 @@ circle of life (Chapter 2):
 stories (Chapter 4): 
     Define requirements with stories, written on note cards. Customer should write these. 
 acceptance tests (Chapter 5):
-    Acceptance tests should tell the client that the system works, and tell the programmers what needs to get done. 
+    Acceptance tests should tell the client that the system works, and tell the programmers what needs to get done. "Black box tests"
 story estimation (Chapter 6):
     For each story, assign it a score based on difficulty of implementation. One point should be about one "perfect engineering week" of work. If a story is 3+ points, maybe have the customer split it into two or more stories. 
 spike solution (chapter 6):
@@ -45,9 +45,25 @@ unit tests (Chapter 13):
 test first (Chapter 14, "test first, by intention"):
     Experiment with writing little tests first, and with always expressing your intention, not algorithm, in the code you write. We think you’ll find that the work goes more smoothly, and you wind up with code that communicates what you mean to do, not just how you did it
 
-make and makefile:
+
+
+
+
+Programming Concepts and Utilities:   
+
+make:
     make is a function that follows the instructions in the makefile to build a paticular file or program. Syntactically, you use type make [filename] to have it follow the build instructions under that filename in the makefile. 
     
+makefile:
+	Automation tool for running and compiling programs, run multiple files at the same time
+	Structure:
+		Target: dependencies
+    		Action
+	Example:
+		test: TestDirectoryLookup.py
+			coverage run    --branch TestDirectoryLookup.py >  TestDirectoryLookup.tmp 2>&1   #The command uses 2>&1 to redirect the stderr to stdout, and > to send the result to the file TestDirectoryLookup.tmp.
+			coverage report -m                      >> TestDirectoryLookup.tmp
+			cat TestDirectoryLookup.tmp
 
 Git and GitLab:
     see /class-repo/notes/notes_1_2.txt
@@ -63,6 +79,7 @@ Python Unittests: statement coverage vs Branch Coverage:
     3. You run the tests by placing main() in your file, usually at the bottom.
     the class provides things like assertEqual, assertFalse, assertCountEqual, etc. 
     **even an internal assertion failure will not stop it from running all of the tests** This is why we love unittest
+	prints one . or F for each unit test. 
 
 Coverage (Not listed in Piazza, but is extension of Unittests):
     See /class-repo/notes/notes_3.txt
@@ -74,16 +91,8 @@ Coverage (Not listed in Piazza, but is extension of Unittests):
     In branch coverage, coverage will flag all branches not visited as not covered. Say you have an if loop and you don't have a test for when the if is false: branch coverage would mark lines never executed as not covered. 
         If coverage is flagging something where you've got an intentional partial branch, you can use "# pragma: no branch" so it doesn't flag it. 
 
-makefile:
-	Automation tool for running and compiling programs, run multiple files at the same time
-	Structure:
-		Target: dependencies
-    		Action
-	Example:
-		test: TestDirectoryLookup.py
-			coverage run    --branch TestDirectoryLookup.py >  TestDirectoryLookup.tmp 2>&1   # 2>&1 pipes the output from dev output to the file
-			coverage report -m                      >> TestDirectoryLookup.tmp
-			cat TestDirectoryLookup.tmp
+
+
 
 
 Python types:
@@ -98,11 +107,13 @@ complex:
         complex(5,"4j") -> TypeError: complex() second arg can't be a string
         complex('1 + 2j') -> ValueError: complex() arg is a malformed string
 dict:
-    Python Dictionary. 
+    A dictionary is a collection which is unordered, changeable and indexed. In Python dictionaries are written with curly brackets, and they have keys and values.
     assert not hasattr(d, "__next__")
     assert     hasattr(d, "__iter__")
-float
-frozenset
+float:
+	Float, or "floating point number" is a number, positive or negative, containing one or more decimals.
+frozenset:
+	The frozenset() function returns an immutable frozenset object initialized with elements from the given iterable.
 int list:
     assert not hasattr(a, "__next__") 
     assert     hasattr(a, "__iter__")
@@ -128,7 +139,8 @@ Python operators:
     x = x + 3
 //
 	Floor Division (integer division, drop the remainder.)
-Bitwise Functions:     TODO: Complete this section and deepen understanding of bitwise functions.
+
+Bitwise Functions:
     <<
 		"Shift Left" (0000 0010   -> 0000 0100)
     >>
@@ -147,16 +159,22 @@ Bitwise Functions:     TODO: Complete this section and deepen understanding of b
 Python functions:
 
 assert:
-    See /class-repo/notes/notes_2.txt
+    Exception: report filename, function name, line number, and the expression where the failure occurred
+	See /class-repo/notes/notes_2.txt
     assertions are good computational comments and they're invaluable to a future maintainer of the code
     an assertion failure reports 
     •	the filename, the function name, the line number, and the expression where the failure occurred
     When an assert fails, it stops the program, unless it's inside a unittest. You should only use these in your unittests, as when you're testing, you want all your tests to run. 
 enumerate
 	enumerate adds a counter to an iterable (counts the iterations); can be converted into list of tuples or used in for loops
-	•	enumerate(iterable, start=0)
+	•	enumerate(iterable, start=0) #start default is 0
 		Parameters:
 		Iterable: any object that supports iteration
+			test_iterator(v for v in [2, 3, 4])                    # generator
+			test_iterator(   map(lambda v : v,    [2, 3, 4]))
+			test_iterator(filter(lambda v : True, [2, 3, 4]))
+			x = [2, 3, 4, 5, 6]
+			y = filter(lambda v : v % 2, x) -> list(y) == [3,5]
 		Start: the index value from which the counter is to be started, by default it is 0 
 	names = ["Alice", "Andrew"]
 	print list(enumerate(names))
@@ -183,8 +201,10 @@ filter
 		else: 
 			return False
 functools.reduce
+	Apply a function to all terms in an iterable to reduce it to a single value. 
+	
 	apply function of two arguments cumulatively to the items of iterable, from left to right, to reduce the iterable to a single value
-	•	functools.reduce(function, iterable[, initializer])
+	•	functools.reduce(function, iterable, initializer)
 		Parameters:
 		function: what is applied to the iterable to reduce it to a single value (often used with lambda functions, anonymous functions)
 		iterable: an iterable that function acts on
@@ -208,17 +228,20 @@ issubclass
 		Returns:
 		True or False
 iter
-	creates an iterator object (out of an iterable) which can be iterated one at a time
+	creates an iterator object (out of an iterable) which can be iterated one at a time. Iterators are factories, they "create" the items when you call next. It generates the next needed value. 
 itertools.count
 	makes iterator that returns values starting with 'start' with intervals of 'step'
 	•	itertools.count(start=0, step=1)
 map next
 	map:
-	applies function to every item of the iterable
+	applies function to every item of the iterable, stores values in an iterator
 	•	map(function, iterable, ...)
 		Parameters:
 		function: function applied to each item of the iterable (often used with lambda functions, anonymous functions)
 		iterable: iterable that the function acts on 
+		x = [2, 3, 4, 5, 6]
+		y = map(lambda v : v * 5, x)    ->    list(y) == [10, 15, 20, 25, 30]
+
 	next(iterator):
 	returns next item from iterator/generator until yield
 use operator functions for assertions?
@@ -238,6 +261,11 @@ range
 reversed
 	returns reversed iterator of given sequence (can take it iteratables, will output iterator)
 	•	reversed(seq)
+	a = [2, 3, 4]
+	r = reversed(a)             # Reversed is an iterator that reverses the input. 
+	assert str(type(r)) == "<class 'list_reverseiterator'>"
+	assert list(r) == [4, 3, 2]
+	assert list(r) == []
 sorted
 	returns sorted list of an iterable object; strings sorted alphabetically, numbers numerically
 	cannot sort list of both string and numeric values
@@ -315,7 +343,8 @@ Python tokens:     # Rewatch the last lecture.  Function Unpacking.
 
 "*" in a function call
 "*" in a parameter list
-	As a parameter it unpacks a tuple. 
+	As a parameter it unpacks a tuple.  t = (3, 4), f(2, *t) == [2, 3, 4] # for tuple unpacking as arguments, it goes integers/unpacking then statements (x=2)
+	assert f(2,*t) == [2,3,4]   and   assert f(z = 2, *t) == [3, 4, 2]	and	  f(x=2,*t) -> TypeError, multiple values for argument x
 "**" in a function call
 "**" in a parameter list
 "=" in a function call
