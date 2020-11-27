@@ -1,0 +1,43 @@
+Test # 2
+Test #2 will be on Thu, 3 Dec, during class time and via Canvas.
+
+The test will be published, like a quiz and you have 75 minutes to finish and submit the test.
+
+It is closed book, but one page of notes (8 1/2 x 11) is allowed. The page of notes can be double sided and printed in any way.
+
+You are not allowed to use your computing machines to test your code.
+
+We will NOT use proctoring tools, but you need to join the class turn on the camera of your computing machine.
+
+The test may consist of questions related to the assignments, classwork, and project 2.
+
+The test will be mainly code writing and will cover Python, Relational Algebra, JSON, and RegEx.
+
+For each question, there will be a textbox for you to provide the answer.
+
+You should be familiar with the following:
+
+Python: 
+    Lambdas:
+    Closures:
+    decorators:
+    iterator functions:
+    iterator classes:
+    RegEx:
+
+Relational Algebra: 
+    select:
+    project: 
+    cross join:
+    theta join:
+    natural join:
+
+Data-interchange format: 
+    XML:
+    JSON:
+
+You should also be familiar with the concepts that were introduced before test #1 (except for the assigned readings).
+
+The best way to study is to form a study group.
+
+Good luck.
