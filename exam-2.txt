@@ -18,6 +18,7 @@ For each question, there will be a textbox for you to provide the answer.
 You should be familiar with the following:
 
 Python: 
+    Generators: Two types, ones that use Yield and ones that use Return. 
     Lambdas:
     Closures:
     decorators:

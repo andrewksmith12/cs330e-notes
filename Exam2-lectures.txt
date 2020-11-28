@@ -1,0 +1,20 @@
+Lecture-by-lecture notes:
+    10/22: Quiz 14. Itertools recreations, 
+        exercisies: Cycle, Count, Repeat <- Basically While loops with yields. 
+    10/27: 
+        Quiz 15 <- list comprehention processing happens at time of creation, tuple comprehention happens at time of execution. List is a list, tuple is a generator
+        exercises: Chain, CCount
+        Writing a generator function:
+            Return (thing_you_want_to_yield for nested_thing in main_thing for thing_you_want_to_yield in nested_thing)
+            It's structured return (yeild_thing for thing in main thing for yeild_thing in thing)
+        In classes:
+            Iterator protocol: Any iterator must implement __iter__ and __next__. __next__ will use return, not yield. __iter__ returns self, since it is an iterator.  
+    10/29:
+        Quiz 16 <- Basically just comprehention of class on 10/27
+        exercises: CRepeat, RangeIterator
+        Range isn't an iterator, it's an iterator-like object. 
+    11/3: 
+        Quiz 17
+        exercises: Range, CCycle
+        Range function and making it cycle
+
