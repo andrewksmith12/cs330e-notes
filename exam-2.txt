@@ -1,30 +1,23 @@
 Test # 2
-Test #2 will be on Thu, 3 Dec, during class time and via Canvas.
-
+Test #2 will be on Thursday, 3 Dec, during class time and via Canvas.
 The test will be published, like a quiz and you have 75 minutes to finish and submit the test.
-
 It is closed book, but one page of notes (8 1/2 x 11) is allowed. The page of notes can be double sided and printed in any way.
-
 You are not allowed to use your computing machines to test your code.
-
 We will NOT use proctoring tools, but you need to join the class turn on the camera of your computing machine.
-
 The test may consist of questions related to the assignments, classwork, and project 2.
-
 The test will be mainly code writing and will cover Python, Relational Algebra, JSON, and RegEx.
-
-For each question, there will be a textbox for you to provide the answer.
+For each question, there will be a text-box for you to provide the answer.
 
 You should be familiar with the following:
 
 Python: 
     Generators: Two types, ones that use Yield and ones that use Return. 
-    Lambdas:
-    Closures:
-    decorators:
-    iterator functions:
-    iterator classes:
-    RegEx:
+    Lambdas: Functions written in-line that make it work. See 11/5
+    Closures: 
+    decorators: Functions that take in other functions in order to perform some kind of additional task. You can use them for things like timers, pre-checks, etc. "Do this then the actual function I passed in."
+    iterator functions: Self explanatory, see lectures from 10/22, 10/27
+    iterator classes: Class implementations (return) of itertools, see lectures from 10/27, 10/29, 11/3
+    RegEx: 
 
 Relational Algebra: 
     select:

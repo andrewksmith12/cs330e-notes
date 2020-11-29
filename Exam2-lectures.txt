@@ -1,20 +1,50 @@
 Lecture-by-lecture notes:
     10/22: Quiz 14. Itertools recreations, 
-        exercisies: Cycle, Count, Repeat <- Basically While loops with yields. 
+        exercises: Cycle, Count, Repeat <- Basically While loops with yields. 
     10/27: 
-        Quiz 15 <- list comprehention processing happens at time of creation, tuple comprehention happens at time of execution. List is a list, tuple is a generator
+        Quiz 15 <- list comprehension processing happens at time of creation, tuple comprehension happens at time of execution. List is a list, tuple is a generator
         exercises: Chain, CCount
         Writing a generator function:
             Return (thing_you_want_to_yield for nested_thing in main_thing for thing_you_want_to_yield in nested_thing)
-            It's structured return (yeild_thing for thing in main thing for yeild_thing in thing)
+            It's structured return (yield_thing for thing in main thing for yield_thing in thing)
         In classes:
             Iterator protocol: Any iterator must implement __iter__ and __next__. __next__ will use return, not yield. __iter__ returns self, since it is an iterator.  
-    10/29:
-        Quiz 16 <- Basically just comprehention of class on 10/27
+    10/29:  
+        Quiz 16 <- Basically just comprehension of class on 10/27
         exercises: CRepeat, RangeIterator
         Range isn't an iterator, it's an iterator-like object. 
     11/3: 
         Quiz 17
         exercises: Range, CCycle
-        Range function and making it cycle
-
+        Range function and making it cycle, etc. 
+        Begin discussion of closures (outer/inner functions) See closures.pdf in notes. 
+    11/5: 
+        Quiz 18: local variables in class def vs global variables. 
+        For closure, when you return an inner function, it keeps the locals (variables) of the outer function so that it can rely on those values. Ex. Outer(i): inner(j): return i+j return inner works. 
+        Review Lambdas.py, cover decorators and their uses, Exercises: Decorators.py/DecoratorsT.py
+    11/10: 
+        Quiz 19: Tests on decorators and stuff covered in the previous class. 
+        Exercises: Decorators1
+        Examples\Cache.py <- Python optimizes code upon interpretation. When you're interacting directly in CLI, it caches -5-256 automatically. When you're running from a script, it will cache all constants used. This lecture went into how identical immutable share a memory location, but things that can change such as lists get separate memory addresses even if their contents are identical (because you can change them) 
+    11/12: 
+        Quiz 20: Tests on Decorators, Assignment 9 published
+        Examples: Variables.py <- this basically is further explanation of cacheing/memory in python, going into lists/tuples and concatenation
+        Exercises: Select.py
+        Levels of computer languages:
+            Low level (1st gen lang. ): Machine Code (10101010)
+            Assembly Languages (2nd gen lang): very, very basic language for things like add and sub. Assembler translates it to machine code. 
+            High-level programming languages (3rd gen lang): Things like python. 
+            Database Languages (4th gen lang): "What, not how" Languages where you specify what you want and now how to do it. Think SQL. 
+        Begin discussion on databases and relational algebra. Basic intro to SQL. 
+        For our cases, we're representing tables as lists of dictionaries. Each row is a dictionary. 
+        Select takes 2 arguments [Table_Name, Unary_Predicate (one-argument function, output is true or false)] for our cases UP could be a lambda function or a traditional python function. ex. of concept select(movies, lambda movie_dict:movies["director"]=="George Lucas")
+    11/17: 
+        Quiz 21: Covers Select.  
+        Note that our list of dictionaries tolerates duplicates, while things like SQL do not. Ideally, we'd use a dictionary of dictionaries, but we can't in python because that's not hashable. 
+        Exercise: project.py
+            project(table, *series of attributes) <- returns table with all rows, but only the listed columns. 
+        Exercise: CrossJoin.py 
+            crossjoin(table1, table2) <- Combine the two tables by combining each of the rows [1,1], [1,2], [1,3], [2,1],[2,2] etc. 
+        Exercise: ThetaJoin.py
+            thetajoin(table1, table2, up) <- Combine the two tables when the unary (binary) predicate is true. (Up takes two arguments, row1 and row2)
+    
