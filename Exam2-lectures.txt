@@ -46,5 +46,10 @@ Lecture-by-lecture notes:
         Exercise: CrossJoin.py 
             crossjoin(table1, table2) <- Combine the two tables by combining each of the rows [1,1], [1,2], [1,3], [2,1],[2,2] etc. 
         Exercise: ThetaJoin.py
-            thetajoin(table1, table2, up) <- Combine the two tables when the unary (binary) predicate is true. (Up takes two arguments, row1 and row2)
-    
+            thetajoin(table1, table2, binary) <- Combine the two tables when the binary predicate is true. (Up takes two arguments, row1 and row2)
+    11/19:
+        Quiz 22: Covers Project, Quiz 23: Covers NaturalJoin
+        naturaljoin(table1, table2) M- Combine the two tables, same as crossjoin except in cases where there's identical column names, then it will only combine if identical columns match. "If you have similar attributes, you much have exactly the same values."
+        JSON: JavaScript Object Notation, standard input-output format for transferring data between applications. 
+    11/24:
+        
