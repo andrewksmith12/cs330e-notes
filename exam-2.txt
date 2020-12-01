@@ -13,22 +13,29 @@ You should be familiar with the following:
 Python: 
     Generators: Two types, ones that use Yield and ones that use Return. 
     Lambdas: Functions written in-line that make it work. See 11/5
-    Closures: 
+    Closures: Closing one function into another function. 
     decorators: Functions that take in other functions in order to perform some kind of additional task. You can use them for things like timers, pre-checks, etc. "Do this then the actual function I passed in."
     iterator functions: Self explanatory, see lectures from 10/22, 10/27
     iterator classes: Class implementations (return) of itertools, see lectures from 10/27, 10/29, 11/3
-    RegEx: 
+    RegEx: Regular expressions, strings that tell how to split up a string. 
+            ^ means the start of the start of the string. so "^b" will split the string into '', 'rest_of_values_except_first_b" if the first character is b
+            $ means the end of the string. So $b will split into 'rest_of_values', '' if the last character is a b. 
+            * means 0 or more (a*) <- 0 or more a's
+            + is one or more
+            ? is zero or one
+            \d <- any digit \D <- any non-digit
+            \w <- any alphanumeric \W <- any non-alphanumeric
 
 Relational Algebra: 
-    select:
-    project: 
-    cross join:
-    theta join:
-    natural join:
+    select: Select takes 2 arguments [Table_Name, Unary_Predicate (one-argument function, output is true or false)] for our cases UP could be a lambda function or a traditional python function. ex. of concept select(movies, lambda movie_dict:movies["director"]=="George Lucas")
+    project: project(table, *series of attributes) <- returns table with all rows, but only the listed columns. 
+    cross join: crossjoin(table1, table2) <- Combine the two tables by combining each of the rows [1,1], [1,2], [1,3], [2,1],[2,2] etc. 
+    theta join: thetajoin(table1, table2, binary) <- Combine the two tables when the binary predicate is true. (Up takes two arguments, row1 and row2)
+    natural join: naturaljoin(table1, table2) M- Combine the two tables, same as crossjoin except in cases where there's identical column names, then it will only combine if identical columns match. "If you have similar attributes, you much have exactly the same values."
 
 Data-interchange format: 
-    XML:
-    JSON:
+    XML: Extensible Markup Language, see examples
+    JSON: JavaScript Object Notation, see examples
 
 You should also be familiar with the concepts that were introduced before test #1 (except for the assigned readings).
 

@@ -57,4 +57,14 @@ Lecture-by-lecture notes:
         Regular Expressions (regex): when you use re.split("cut_term", string) we split out the cut_term and we split the string there. Returns a list. 
             ^ means the start of the start of the string. so "^b" will split the string into '', 'rest_of_values_except_first_b" if the first character is b
         r = re.compile("cut_term", re.M) <- compiles regex pattern into regex object. Then we can use it with r.split(string)
-        
+    12/1:
+        Quiz 25: regex
+        Review the basics of regex that we already went over in the last class. Continue building on that knowledge. 
+            $ means the end of the string. So $b will split into 'rest_of_values', '' if the last character is a b. 
+            * means 0 or more (a*) <- 0 or more a's
+            + is one or more
+            ? is zero or one
+            \d <- any digit \D <- any non-digit
+            \w <- any alphanumeric \W <- any non-alphanumeric
+        Cover the basics of XML structure and XML schema structure.
+        Examples: BusinessCard.xml, BusinessCardDTD.dtd
