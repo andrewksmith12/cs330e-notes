@@ -52,4 +52,9 @@ Lecture-by-lecture notes:
         naturaljoin(table1, table2) M- Combine the two tables, same as crossjoin except in cases where there's identical column names, then it will only combine if identical columns match. "If you have similar attributes, you much have exactly the same values."
         JSON: JavaScript Object Notation, standard input-output format for transferring data between applications. 
     11/24:
+        Quiz 24: JSON 
+        Review JSON, create JSON templates. Walked through all the example .json files. 
+        Regular Expressions (regex): when you use re.split("cut_term", string) we split out the cut_term and we split the string there. Returns a list. 
+            ^ means the start of the start of the string. so "^b" will split the string into '', 'rest_of_values_except_first_b" if the first character is b
+        r = re.compile("cut_term", re.M) <- compiles regex pattern into regex object. Then we can use it with r.split(string)
         
