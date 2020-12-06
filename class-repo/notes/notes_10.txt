@@ -1,0 +1,31 @@
+Recall: 
+------
+Iterables:
+--------
+Iterables are any objects that you can loop over them in a loop.
+
+Iterables can be indexables, e.g., lists, or non-indexable, e.g., sets.
+So, iterables are not always indexables, they don't have legths and
+they are not always finite.
+
+Note that you cannot always convert an iterable to a list before
+you loop over it. Some iterables are infinite and any attempt
+to convert them to a list is not going to work, e.g., count.
+
+Iterators:
+---------
+Iterators are objects that have an "__iter__" abd "__next__" methods. 
+Generators are an easy, built in way to create instances of iterators.
+
+We can get an iterator from an iterable using the "iter" function.
+
+
+RangeIterator: 
+------------------------
+In RangeIteratorT we see that range_iterator_class and 
+range_iterator_function are imported meaning we 
+can implement the rangeIterator functionality in 
+both a class and a function.
+ 
+
+ 

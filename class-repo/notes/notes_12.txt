@@ -1,0 +1,45 @@
+>>> def make_inc_b (j) :
+...     return lambda i : i + j
+...
+>>>
+>>> x = make_inc_b(1)(2)
+>>> x
+3
+>>> def make_inc_b (j, k) :
+...     return lambda i : i + j + k
+...
+>>> x = make_inc_b(1,2)(2)
+>>> x
+5
+>>> def make_inc_b (j) :
+...     return lambda i, k : i + k + j
+...
+>>> x = make_inc_b(1)(2,3)
+>>> x
+6
+>>>
+-------
+Cache.py
+--------
+Note: Python caches integers in the range [-5, 256], so it is expected that integers in that range are also identical. i.e., within this range, the variable is its value. outside this range the variable is an address.
+
+Note: inconsistent behavior of interactive vs script python.
+>>> a = 257
+>>> b = 257
+>>> a is b 
+False # ?
+>>> a = 257; b = 257; a is b #script like behavior
+True # ?
+
+Why?
+What you see is the Python compiler optimizing identical literals when part of the same text.
+(i.e., In a file, the interpreter can preprocess all of the code, before actually running it.)
+
+Variables.py
+------------
+slicing a into b, b = a[:], will make two different lists a and b. modifying any member of one of them will not affect the other. 
+(b=a[:] creates new list as previous list but different address --shallow copying). 
+copying a into b, b=copy(a), will make two different lists a and b. modifying any member of one of them will not affect the other.
+slicing a into b, b = a[:], will make tuple b points at a. -- no copy for immutables. 
+slicing a into b, b = copy(a), will make tuple b points at a. 
+b = a, list b will point at a. Adding a new member to b (b += [5]) will also affect a. 

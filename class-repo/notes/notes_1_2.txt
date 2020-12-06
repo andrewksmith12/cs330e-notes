@@ -1,0 +1,111 @@
+Student issues:
+--------------
+- created a repo name with spaces.
+- when creating a repo, some forgot to select 
+option "initialize with read me"
+- used Google to register a Gitlab account so have no password
+- Got access denied when pushing, need to change Credential Manager in Windows
+
+Git and GitLab
+--------------
+Version control: Software tools that help a software team 
+- manage changes to source code over time 
+- keeps track of every modification to the code in a special kind of database
+
+Git - A source code versioning system that lets you 
+- locally track changes 
+- and push or pull changes from remote resources
+
+GitLab - Are services that provides remote access to Git repositories. 
+In addition to hosting your code, the services provide additional features 
+designed to help manage the software development lifecycle. 
+These additional features include 
+- managing the sharing of code between different people, 
+- bug tracking, 
+- wiki space and 
+- other tools for 'social coding'.
+
+---------
+
+On local machine: Working area   ---git add-->    Staging area   ---git commit--> local repo
+		      
+---------
+
+The file is untracked, meaning that Git sees a file not part of a previous commit. 
+The status output also shows you the next step: adding the file.
+
+---------
+
+The staging area is where you prepare a snapshot of a set of changes before 
+committing them to the official history. 
+Oposite of:
+git add . -> git reset
+git add x.txt -> git reset x.txt
+
+---------
+
+Git status provides status information on changes in the local environment 
+that have not been committed yet. 
+
+Git diff shows the differences between content at the various stages 
+in your environment (e.g., when you modify a staged file and want to compare 
+the contents of the file in the working directory and in the staging directory).
+http://mickeygousset.com/using-git-status-git-diff/
+
+Note:
+Compare a local git branch with its remote branch.
+>Git fetch
+>git diff master origin/master
+
+-------
+Uncommit option:
+
+- Undo the act of committing, leaving everything else intact, use:
+
+git reset --soft HEAD^
+
+- Undo the act of committing and everything you'd staged, but leave the work tree (your files intact):
+
+git reset HEAD^
+
+- Completely undo it, throwing away all uncommitted changes, resetting everything to the previous commit: 
+
+
+git reset --hard HEAD^
+
+HEAD refers to the current commit - generally, the tip of the currently checked-out branch. 
+The ^ is a notation which can be attached to any commit specifier, and means "the commit before".
+https://stackoverflow.com/questions/2845731/how-to-uncommit-my-last-commit-in-git
+
+-------
+Change commit message:
+The following is not recommended if the remote repo is collaborative.
+
+To change the commit message, you can simply do the following:
+
+git commit --amend 
+
+This brings up the editor with the last commit message and 
+lets you edit the message. (You can use -m if you want to wipe out 
+the old message and use a new one.)
+
+Pushing
+And then when you push, do this:
+git push --force origin master
+
+Note that “master” branch is protected by default, so you may need to 
+go to the remote repo on GitLab and changes the setting of the branch (i..e, make it unprotected).
+
+------
+“git push origin master” this command specifies that you are pushing to the master branch 
+(the branch on GitLab) on origin (the GitLab server).
+
+After executing this command, your commits are now on the remote repository (origin).
+------
+“git branch” only creates a new branch it did not switch to that branch.
+from now on, any modifications will only affect the branch (unless you switch back to master).
+
+You can create a dev branch and switch into it in one command.
+$ git checkout -b dev
+------
+A fork is a copy of an original repository that you can put in another namespace where you can experiment and apply changes that you can later decide if publishing or not, without affecting your original project.
