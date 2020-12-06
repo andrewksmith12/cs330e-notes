@@ -66,5 +66,6 @@ Lecture-by-lecture notes:
             ? is zero or one
             \d <- any digit \D <- any non-digit
             \w <- any alphanumeric \W <- any non-alphanumeric
+            . <- Any character except new line. 
         Cover the basics of XML structure and XML schema structure.
         Examples: BusinessCard.xml, BusinessCardDTD.dtd

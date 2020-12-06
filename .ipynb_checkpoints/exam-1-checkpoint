@@ -1,0 +1,307 @@
+Test #1
+Test #1 will be on Tue, 20 Oct, during class time and via Canvas.
+
+The test will be published, like a quiz and you have 75 minutes to finish and submit the test. The test may have 4-6 questions and, for each question, there will be a textbox for you to provide the answer. No Multiple choice questions. 
+
+The test may consist of questions from the assigned readings, assignments, classwork, and project 1. You should expect code writing questions in Python. You are NOT allowed to use your computing machines to test your code. 
+
+It is closed book, but one page of notes (8 1/2 x 11) is allowed. The page of notes can be double sided and printed in any way. 
+
+We will NOT use proctoring tools, but you need to join the class and we’ll split you into breakout rooms of one person each and you MUST to share your desktop. 
+
+It’s critical that you join the class at least 5 minutes before it starts to arrange for the breakout rooms. 
+
+You should be very familiar with the following:
+
+Book: Extreme programming
+
+circle of life (Chapter 2):
+    The customer’s basic job is to define what has value, and the programmer’s job is to build it. 
+    Circle of life: define, estimate, choose, build.
+stories (Chapter 4): 
+    Define requirements with stories, written on note cards. Customer should write these. 
+acceptance tests (Chapter 5):
+    Acceptance tests should tell the client that the system works, and tell the programmers what needs to get done. 
+story estimation (Chapter 6):
+    For each story, assign it a score based on difficulty of implementation. One point should be about one "perfect engineering week" of work. If a story is 3+ points, maybe have the customer split it into two or more stories. 
+spike solution (chapter 6):
+    Estimating story length when comparing to other stories is easy, but if you haven't implemented anything like this before, do some expereimenting, make a spike solution. Example: balancing an account: take the numbers, add them up. Maybe make a transaction object to store that data, a vector of them, a loop, etc. Formatted reports: make a collection of record objects, give them fields, code the report, print it all. If it's too complicated to implement on it's own, maybe experiment with a report generator. With a DB, you might make a sample DB to query with your code in test. As soon as you have enough of the basics figured out to see how you'll implement it and estimate how long it will take, you're done. 
+small releases (Chapter 7):
+    Releasing often give you a chance to get feedback on the product and the chance to deliver business value quickly. Replacing parts of a system one by one delivers value, integrating with the existing system temporarially gives them immediate value and helps ease the transition. Customer should choose stories for first release based on business value and difficulty. 
+iteration planning (Chapter 9):
+    1. Customer presents User Stories;
+    2. Team brainstorms Engineering Tasks;
+    3. Programmer signs up for work and estimates.
+refactoring (Chapter 11, Programming): 
+    We keep the code simple at all times.This minimizes investment in excess framework and support code. We retain the necessary flexibility through refactoring.
+    Refactoring: Improving the design of existing code
+continuous integration (Chapter 11, Programming):
+    "Integration is a bear. We can’t put it off forever. Let’s do it all the time instead."
+    The longer we wait between integrations and acceptance tests, the worse things get. integrate and test the entire system multiple times per day
+pair programming (Chapter 12):
+    Two programmers sitting together at the same machine write all production code. One of them is focusing on the method being programed and the algorithm they have in mind. The other is spotting simple errors like spelling, syntax, and is reminding the other of protocols and making sure the other isn't goign down the wrong hole. 
+unit tests (Chapter 13):
+    Code refinement is only possible if you have lots of tests to prove that things still work. Therefore, XP teams build automated unit tests for everything, and make sure they run perfectly all the time. Test a little, code a little. Don't throw away tests, they become a perminant part of the system for checking everything still works after a possible future refactoring. 
+test first (Chapter 14, "test first, by intention"):
+    Experiment with writing little tests first, and with always expressing your intention, not algorithm, in the code you write. We think you’ll find that the work goes more smoothly, and you wind up with code that communicates what you mean to do, not just how you did it
+
+make and makefile:
+    make is a function that follows the instructions in the makefile to build a paticular file or program. Syntactically, you use type make [filename] to have it follow the build instructions under that filename in the makefile. 
+    
+
+Git and GitLab:
+    see /class-repo/notes/notes_1_2.txt
+
+Python Unittests: statement coverage vs Branch Coverage:
+    See /class-repo/notes/notes_3.txt
+    Python's unittest in its simplest form consists of the function main and the class TestCase
+    Define a class that extends TestCase. Each function inside this class must start with "test"
+    Unittest workflow is:
+    1. you import main and TestCase from unittest
+    2. You define your own class derived from TestCase.
+    3. Then you fill it with functions that start with ‘test’.
+    3. You run the tests by placing main() in your file, usually at the bottom.
+    the class provides things like assertEqual, assertFalse, assertCountEqual, etc. 
+    **even an internal assertion failure will not stop it from running all of the tests** This is why we love unittest
+
+Coverage (Not listed in Piazza, but is extension of Unittests):
+    See /class-repo/notes/notes_3.txt
+    Test coverage or code coverage is used to measure the percent of your code covered by a test. 
+    Coverage testing only checks whether or not a test is present. It does not check the quality of the test.
+
+    Where a line in your program could jump to more than one next line, coverage.py tracks which of those destinations are actually visited, and flags lines that haven’t visited all of their possible destinations.
+    
+    In branch coverage, coverage will flag all branches not visited as not covered. Say you have an if loop and you don't have a test for when the if is false: branch coverage would mark lines never executed as not covered. 
+        If coverage is flagging something where you've got an intentional partial branch, you can use "# pragma: no branch" so it doesn't flag it. 
+
+Python types:
+bool:
+    True or False
+complex: 
+    Complex numbers have a real and imaginary part, which are each a floating point number. To extract these parts from a complex number z, use z.real and z.imag
+    complex():
+        Return a complex number with the value real + imag*1j or convert a string or number to a complex number. If the first parameter is a string, it will be interpreted as a complex number and the function must be called without a second parameter. The second parameter can never be a string. Each argument may be any numeric type (including complex). If imag is omitted, it defaults to zero and the constructor serves as a numeric conversion like int and float. If both arguments are omitted, returns 0j.
+        complex("5+4j") -> (5+4j)
+        complex(5, 4) -> (5+4j)
+        complex(5,"4j") -> TypeError: complex() second arg can't be a string
+        complex('1 + 2j') -> ValueError: complex() arg is a malformed string
+dict:
+    Python Dictionary. 
+    assert not hasattr(d, "__next__")
+    assert     hasattr(d, "__iter__")
+float
+frozenset
+int list:
+    assert not hasattr(a, "__next__") 
+    assert     hasattr(a, "__iter__")
+set str tuple:
+    assert isinstance(a, tuple)
+    assert not hasattr(a, "__next__")
+    assert     hasattr(a, "__iter__")  
+
+Python operators:
+**
+    Exponent (ex. 5**2==25) 
+**=
+    (x **= 3) == (x= x**3 )
+/=
+    (x /= 3) == (x = x / 3)
+!=
+    Not equal to
+%
+    Modulus- return remainder of division (Ex. 5%2==1)
+%=
+    (x %= 3) == (x = x % 3)
++=  
+    x = x + 3
+Bitwise Functions:     TODO: Complete this section and deepen understanding of bitwise functions.
+    <<
+        Zero fill left shift. Shift left by pushing zeros in from the right and let the leftmost bits fall off. 
+    <<=
+        x <<= 3   ==    x = x << 3
+    >>
+    >>=
+    ^
+    ^=
+    |= ~ and not or
+    &
+    //
+    &=  
+
+Python functions:
+
+assert:
+    See /class-repo/notes/notes_2.txt
+    assertions are good computational comments and they're invaluable to a future maintainer of the code
+    an assertion failure reports 
+    •	the filename, the function name, the line number, and the expression where the failure occurred
+    When an assert fails, it stops the program, unless it's inside a unittest. You should only use these in your unittests, as when you're testing, you want all your tests to run. 
+enumerate
+	enumerate adds a counter to an iterable (counts the iterations); can be converted into list of tuples or used in for loops
+	•	enumerate(iterable, start=0)
+		Parameters:
+		Iterable: any object that supports iteration
+		Start: the index value from which the counter is to be started, by default it is 0 
+	names = ["Alice", "Andrew"]
+	print list(enumerate(names))
+	# output: [(0, 'Alice'), (1, 'Andrew')]
+	for count, element in enumerate(names):
+		print(count, element)
+	# output:0 Alice
+	#		 1 Andrew
+except
+	clause activates if exception happens when a 'try' clause is executed
+	can be generic (except) or specifically typed (except ValueError)
+filter
+	•	filter(function, sequence)
+		Parameters:
+		function: function that tests if each element of a sequence true or not.
+		sequence: sequence which needs to be filtered, it can be sets, lists, tuples, or containers of any iterators.
+		Returns:
+		returns an iterator that is already filtered.
+	example of a function:
+	•	def fun(variable): # tests for vowels in the sequence parameter
+		letters = ['a', 'e', 'i', 'o', 'u'] 
+		if (variable in letters): 
+			return True
+		else: 
+			return False
+functools.reduce
+	apply function of two arguments cumulatively to the items of iterable, from left to right, to reduce the iterable to a single value
+	•	functools.reduce(function, iterable[, initializer])
+		Parameters:
+		function: what is applied to the iterable to reduce it to a single value (often used with lambda functions, anonymous functions)
+		iterable: an iterable that function acts on
+		initializer: used first before items of iterable, is the default if the iterable is empty
+	•	functools.reduce(lambda x,y: x+y, [1,2,3]) calculate ((1+2)+3)
+	•	def reduce(function, iterable, initializer=None): # functionally does this
+		it = iter(iterable) # make whatever iterable is into an iterable form
+		if initializer is None:
+			value = next(it)
+		else:
+			value = initializer
+		for element in it: # for each element in the iterable, perform the function on it with the previously calculated value
+			value = function(value, element)
+		return value
+issubclass
+	checks if the first class parameter is a subclass of the second class parameter
+	•	issubclass(firstclass, secondclass)
+		Parameters:
+		firstclass: class to be checked
+		secondclass: class, type, or tuple of classes and types
+		Returns:
+		True or False
+iter
+	creates an iterator object (out of an iterable) which can be iterated one at a time
+itertools.count
+	makes iterator that returns values starting with 'start' with intervals of 'step'
+	•	itertools.count(start=0, step=1)
+map next
+	map:
+	applies function to every item of the iterable
+	•	map(function, iterable, ...)
+		Parameters:
+		function: function applied to each item of the iterable (often used with lambda functions, anonymous functions)
+		iterable: iterable that the function acts on 
+	next(iterator):
+	returns next item from iterator/generator until yield
+use operator functions for assertions?
+operator.add = a + b
+operator.floordiv = a // b
+operator.mul = a * b
+operator.sub = a - b
+operator.truediv = a / b
+pass (we know this)
+print (we know this)
+raise
+	force a specified exception to occur
+	•	raise XError('Error statement')
+range
+	returns sequence of numbers (NOT iterator) and increments them by 1 (default) or specified step; stops at specified number
+	•	range(start, stop, step)
+reversed
+	returns reversed iterator of given sequence (can take it iteratables, will output iterator)
+	•	reversed(seq)
+sorted
+	returns sorted list of an iterable object; strings sorted alphabetically, numbers numerically
+	cannot sort list of both string and numeric values
+sqrt
+	from import math; returns square root of number
+str.join
+	returns a string that joins the elements of an iterable with str
+	•	str.join(iterable)
+sum try type
+yield
+	suspends the function's execution and sends value back to caller (makes the function a generator of values)
+	•	def f():
+			print ("x")
+			yield 5
+			print("y")
+			yield 6
+		v = f()
+		# output of v: generator object
+		w = next(v)
+		#immediate output: x
+		w
+		# output of w: 5
+		w = next(v)
+		# immediate output: y
+zip
+	returns zip object (iterator of tuples) where first item in each passed iterator is paired tgt, etc.
+	•	iterator with least items decides length of returned zip object
+	•	zip(iterator1, iterator2, ...)
+	
+Python methods:
+__getitem__
+	allows instances to use the [] indexer operators
+	x[i] = type(x)._getitem_(x, i)
+__init__
+	the constructor/init method for the class that executes when object of class is created
+__iter__
+	called by the iter() function; returns an iterator object from the given iterable
+__len__
+	called by the len() fucntion; returns length of an object
+__next__
+	called by the next() function; returns the next item in the iterator sequence; at the end, it raises StopIteration
+
+
+Python concepts:
+
+assertions
+classes
+concatenation
+dict comprehensions
+exceptions
+generators
+iterables ("_iter_")
+	an object that can be iterated over; produces any number of valid iterators
+	no iteration state like current element
+	has one method; generates iterators when passed to iter()
+	list, list comprehension, generators (like (x for x in y))
+iteration
+	taking each item of something, one after another (loops are iterations)
+	every iterator is an iterable, but not every iterable is an iterator
+iterators ("_next_")
+	an object with iteration state
+	check if it has more elements with _next_ and yields next element (in a specific order) with next()
+	generators
+lambdas
+list comprehensions
+nested functions
+recursion
+replication
+set comprehensions
+StopIteration
+
+Python tokens:
+
+"*" in a function call
+"*" in a parameter list
+"**" in a function call
+"**" in a parameter list
+"=" in a function call
+"=" in a parameter list
+
+The best way to study is to form a study group.
+
+Good luck.
